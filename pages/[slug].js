@@ -1,33 +1,35 @@
-import { MDXRemote } from 'next-mdx-remote';
-import MDXComponents from '../components/MDXComponents';
-import { getFileBySlug, getFiles } from '../utils/mdx';
+import Layout from '@/components/Layout';
+import markdownToHtml from '@/libs/markdown';
+import { getAllPosts, getPostBySlug } from '@/libs/posts';
 
-function Post({ source, frontmatter }) {
-  return <MDXRemote {...source} components={MDXComponents} />;
+export default function Post({ meta, content }) {
+  return <Layout meta={meta}>{content}</Layout>;
 }
 
-export default Post;
-
 export async function getStaticProps({ params }) {
-  const { source, frontmatter } = await getFileBySlug(params.slug);
+  const post = getPostBySlug(params.slug);
+  const content = await markdownToHtml(post.content || '');
+
   return {
     props: {
-      source,
-      frontmatter,
+      ...post,
+      content,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = await getFiles();
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.replace('.mdx', ''),
-    },
-  }));
+  const posts = await getAllPosts();
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+    };
+  });
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
