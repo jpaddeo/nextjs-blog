@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 import Head from 'next/head';
-import Link from 'next/link';
 
 export default function Layout({ children, meta }) {
   return (
@@ -9,15 +6,17 @@ export default function Layout({ children, meta }) {
       <Head>
         <title>{meta.title}</title>
         <meta name='description' content={meta.description} />
-
         <meta content={meta.description} name='description' />
         <meta property='og:type' content='website' />
-        <meta property='og:site_name' content={`Blog_${meta.title}`} />
+        <meta property='og:site_name' content={meta.title} />
         <meta property='og:description' content={meta.description} />
         <meta property='og:title' content={meta.title} />
         {meta.image && <meta property='og:image' content={meta.image} />}
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='https://blog.jpaddeo.work' />
+        <meta
+          name='twitter:site'
+          content={meta.url || 'https://blog.jpaddeo.work'}
+        />
         <meta name='twitter:title' content={meta.title} />
         <meta name='twitter:description' content={meta.description} />
         {meta.image && <meta name='twitter:image' content={meta.image} />}
@@ -31,10 +30,9 @@ export default function Layout({ children, meta }) {
           rel='stylesheet'
         />
       </Head>
-      <article
-        className='prose lg:prose-xl px-8 m-auto my-4 sm:my-16'
-        dangerouslySetInnerHTML={{ __html: children }}
-      />
+      <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 bg-white text-black antialiased dark:bg-gray-900 dark:text-white'>
+        <div className='flex h-screen flex-col justify-between'>{children}</div>
+      </div>
     </>
   );
 }

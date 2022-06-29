@@ -3,7 +3,14 @@ import markdownToHtml from '@/libs/markdown';
 import { getAllPosts, getPostBySlug } from '@/libs/posts';
 
 export default function Post({ meta, content }) {
-  return <Layout meta={meta}>{content}</Layout>;
+  return (
+    <Layout meta={meta}>
+      <article
+        className='prose lg:prose-xl px-8 m-auto my-4 sm:my-16'
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    </Layout>
+  );
 }
 
 export async function getStaticProps({ params }) {
