@@ -6,7 +6,7 @@ export default function PostCard({ slug, meta }) {
       key={slug}
       className='py-4 px-4 border-2 border-gray-700 hover:border-white hover:border-dashed rounded-lg cursor-pointer'
     >
-      <Link href={`/${slug}`} className='text-gray-900 dark:text-gray-100'>
+      <Link href={`/post/${slug}`} className='text-gray-900 dark:text-gray-100'>
         <article>
           <div className='space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"'>
             <dl>
