@@ -17,11 +17,11 @@ export default function Home({ posts }) {
             initialPosts={posts}
             callbackSearch={(newPosts) => setRenderedPosts(newPosts)}
           />
-          <ul className='space-y-4'>
+          <div className='space-y-4'>
             {renderedPosts.map(({ slug, meta }) => (
               <PostCard key={slug} slug={slug} meta={meta} />
             ))}
-          </ul>
+          </div>
         </main>
       </div>
     </Layout>
