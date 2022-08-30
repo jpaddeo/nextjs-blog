@@ -30,9 +30,9 @@ export default function Layout({ children, meta }) {
           rel='stylesheet'
         />
       </Head>
-      <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 bg-white text-black antialiased dark:bg-gray-900 dark:text-white'>
+      <main className='mx-auto px-4 bg-white text-black antialiased dark:bg-gray-900 dark:text-white'>
         <div className='flex h-screen flex-col justify-between'>{children}</div>
-      </div>
+      </main>
     </>
   );
 }

@@ -11,18 +11,16 @@ export default function Home({ posts }) {
 
   return (
     <Layout title='' meta={{ title: 'Blog personal de Juan Pablo Addeo' }}>
-      <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0'>
-        <main className='mb-auto'>
-          <Header
-            initialPosts={posts}
-            callbackSearch={(newPosts) => setRenderedPosts(newPosts)}
-          />
-          <div className='space-y-4'>
-            {renderedPosts.map(({ slug, meta }) => (
-              <PostCard key={slug} slug={slug} meta={meta} />
-            ))}
-          </div>
-        </main>
+      <div className='mb-auto mx-auto w-5xl'>
+        <Header
+          initialPosts={posts}
+          callbackSearch={(newPosts) => setRenderedPosts(newPosts)}
+        />
+        <div className='space-y-4'>
+          {renderedPosts.map(({ slug, meta }) => (
+            <PostCard key={slug} slug={slug} meta={meta} />
+          ))}
+        </div>
       </div>
     </Layout>
   );
