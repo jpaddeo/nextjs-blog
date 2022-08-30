@@ -2,6 +2,7 @@
 title: 'Prism with Next.js'
 description: 'Example using Prism / Markdown with Next.js including switching syntax highlighting themes.'
 date: '2022-06-27'
+categories: 'reactjs nextjs'
 ---
 
 # Using Prism with Next.js

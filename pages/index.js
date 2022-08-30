@@ -10,8 +10,8 @@ export default function Home({ posts }) {
   const [renderedPosts, setRenderedPosts] = useState(posts);
 
   return (
-    <Layout title='' meta={{ title: 'Blog personal de Juan Pablo Addeo' }}>
-      <div className='mb-auto mx-auto w-5xl'>
+    <Layout title='Blog | JPA' meta={{ title: 'Blog | JPA' }}>
+      <div className='mx-auto max-w-md md:max-w-xl lg:max-w-2xl xl:max-w-5xl'>
         <Header
           initialPosts={posts}
           callbackSearch={(newPosts) => setRenderedPosts(newPosts)}

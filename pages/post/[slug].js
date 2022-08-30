@@ -6,7 +6,7 @@ export default function Post({ meta, content }) {
   return (
     <Layout meta={meta}>
       <article
-        className='prose lg:prose-xl px-8 m-auto my-4 sm:my-16'
+        className='max-w-md md:max-w-xl lg:max-w-2xl xl:max-w-5xl prose lg:prose-xl px-8 m-auto my-4 sm:my-16'
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </Layout>
